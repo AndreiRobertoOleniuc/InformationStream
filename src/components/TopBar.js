@@ -8,7 +8,7 @@ export default function TopBar() {
                 <span className="material-icons bigIcon text-white text-lg cursor-pointer">menu</span>
                 <p className="text-white text-lg">Informations Stream</p>
                 <div className="flex flex-row justify-center items-center">
-                    <span className="material-icons smallIcon text-white text-lg cursor-pointer">notifications</span>
+                    <span className="material-icons smallIcon text-white text-lg cursor-pointer mr-2">notifications</span>
                     <span className="material-icons bigIcon text-white text-lg cursor-pointer">
                         account_circle
                     </span>
@@ -27,8 +27,6 @@ export default function TopBar() {
                     <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Search</button>
                 </div>
             </form>
-
-
 
             <ul class="flex max-w-full text-sm font-medium text-center text-gray-500  border-gray-200 overflow-x-hidden overflow-y-auto">
                 <li class="me-2 w-2/5">
