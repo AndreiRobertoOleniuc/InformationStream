@@ -5,7 +5,7 @@ export default function TopBar() {
     return (
         <div className=" w-full bg-blue-500 pr-2 pl-2 pt-5">
             <div className="w-full flex justify-between mb-4">
-                <span className="material-icons bigIcon text-white text-lg cursor-pointer">menu</span>
+                <span className="w-10"></span>
                 <p className="text-white text-lg">Informations Stream</p>
                 <div className="flex flex-row justify-center items-center">
                     <span className="material-icons smallIcon text-white text-lg cursor-pointer mr-2">notifications</span>
