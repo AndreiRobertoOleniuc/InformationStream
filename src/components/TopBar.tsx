@@ -3,7 +3,7 @@ import "../styles/Icons.scss"
 
 export default function TopBar() {
     return (
-        <div className=" w-full bg-blue-500 pr-2 pl-2 pt-5">
+        <div className=" w-full bg-blue-500 pr-2 pl-2 pt-2">
             <div className="w-full flex justify-between mb-4">
                 <span className="w-10"></span>
                 <p className="text-white text-lg">Informations Stream</p>
@@ -15,7 +15,7 @@ export default function TopBar() {
                 </div>
             </div>
 
-            <form className="mb-5">
+            <form className="mb-2">
                 <label className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
                 <div className="relative">
                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">

@@ -9,21 +9,17 @@ export default function CreateArticle() {
     const [description, setDescription] = useState<string>("")
     const [image, setImage] = useState<string>("")
     const [sections, setSections] = useState<Section[]>([])
-    
-    let disableSection: boolean = true;
+
 
     const addCategory = ()=>{
+        if(category==="") return;
         setCategories([...categories, category])
         setCategory("")
     }
 
-    const canSectionsBeAdded = ()=>{
-        disableSection = !(title!=="" && description!=="" && image!=="" && categories.length>0);
-    }
+    const canSectionsBeAdded = title!=="" && description!=="" && image!=="" && categories.length>0
+    const canBePublished = canSectionsBeAdded && sections.length !== 0
 
-    const canBePublished = ()=>{
-        return disableSection && sections.length>0
-    }
     return (
         <div className="w-full px-3 py-2 h-full bg-slate-200 flex flex-col justify-between">
             <div className="builder w-full flex-col">
@@ -67,19 +63,19 @@ export default function CreateArticle() {
                 </div>
             </div>
             <div className="action-bar flex flex-row ">
-                <button type="button" className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center inline-flex items-center me-2" onClick={canSectionsBeAdded}>
+                <button type="button" className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center inline-flex items-center me-2 cursor-pointer">
                     <span className="material-icons smallIcon mr-2">
                     save
                     </span>
                     Save Meta Info
                 </button>
-                <button type="button" className={` font-medium rounded-lg text-sm px-2.5  py-2.5 text-center inline-flex items-center me-2 ${disableSection ? "border-blue-300 border-2 text-black opacity-20" : "text-white bg-blue-500 hover:bg-blue-600"}`} disabled={!disableSection}>
+                <button type="button" className={` font-medium rounded-lg text-sm px-2.5  py-2.5 text-center inline-flex items-center me-2 ${canSectionsBeAdded ?"text-white bg-blue-500 hover:bg-blue-600": "border-blue-300 border-2 text-black opacity-20 cursor-pointer" }`} disabled={!canSectionsBeAdded}>
                     <span className="material-icons smallIcon mr-2">
                     add
                     </span>
                     Add Section
                 </button>
-                <button type="button" className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-2.5  py-2.5 text-center inline-flex items-center me-2">
+                <button type="button" className={` font-medium rounded-lg text-sm px-2.5  py-2.5 text-center inline-flex items-center me-2  ${canBePublished ? "text-white bg-blue-500 hover:bg-blue-600": "border-blue-300 border-2 text-black opacity-20 cursor-pointer" }`} disabled={!canBePublished}>
                     <span className="material-icons smallIcon mr-2">
                     publish
                     </span>
