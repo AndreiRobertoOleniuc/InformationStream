@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Article } from "../models/Article";
 
 const initialState = {
-  news: [] as any[],
+  news: [] as Article[],
 };
 
 export const newsSlice = createSlice({
