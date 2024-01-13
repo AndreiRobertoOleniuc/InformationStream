@@ -1,4 +1,3 @@
-import { CustomHTMLBlock } from "./Content/CustomHTMLBlock";
 import { ImageBlock } from "./Content/ImageBlock";
 import { QuoteBlock } from "./Content/QuoteBlock";
 import { TextBlock } from "./Content/TextBlock";
@@ -10,9 +9,4 @@ export interface Section {
   contentBlocks: ContentBlock[];
 }
 
-export type ContentBlock =
-  | TextBlock
-  | ImageBlock
-  | VideoBlock
-  | QuoteBlock
-  | CustomHTMLBlock;
+export type ContentBlock = TextBlock | ImageBlock | VideoBlock | QuoteBlock;

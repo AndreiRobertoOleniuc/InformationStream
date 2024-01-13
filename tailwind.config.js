@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/*.tsx", "./src/components/*.tsx", "./src/components/blocks/*.tsx", "./src/pages/*.tsx"],
   theme: {
-    extend: {},
+    extend: {
+      maxHeight: {
+        '128': '470px',
+        '160': '550px'
+      }
+    },
   },
   plugins: [],
 }
