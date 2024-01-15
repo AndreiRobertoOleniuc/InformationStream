@@ -104,7 +104,7 @@ export default function CreateArticle() {
                         onChange={(e)=>setHeroImage(e.target.value)}/>
                     </div>
                     <div className="mt-5">
-                        {categories.map((category, index) => (
+                        {categories?.map((category, index) => (
                             <span key={index} className="text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 px-4 py-2.5 me-2 inline-flex items-center mb-1">
                                 {category}
                                 <span className="material-icons smallIcon ml-2 cursor-pointer" onClick={()=>setCategories(categories.filter((cat, i)=>index!==i))}>

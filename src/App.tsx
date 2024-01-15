@@ -5,6 +5,7 @@ import NavBar from './components/Navbar';
 import CreateArticle from './pages/CreateArticle';
 import News from './pages/News';
 import Profile from './pages/Profile';
+import ViewArticle from './pages/ViewArticle';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<News />} />
           <Route path="/create" element={<CreateArticle />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/article/:id" element={<ViewArticle />} />
         </Routes>
         <NavBar />
       </div>
