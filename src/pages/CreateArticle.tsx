@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import "../styles/Icons.scss"
 import ArticleComponent from '../components/Article';
 
@@ -25,12 +25,6 @@ export default function CreateArticle() {
             setIsInSectionMode(!isInSectionMode);
         }
     }
-
-    useEffect(() => {
-        console.log(content);
-    }, [content]);
-
-
 
     return (
         <div className="w-full px-3 py-2 flex-grow bg-slate-200 flex flex-col justify-between">
