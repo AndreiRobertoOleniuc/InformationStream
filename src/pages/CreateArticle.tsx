@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import "../styles/Icons.scss"
-import { Section } from '../models/Section';
 import ArticleComponent from '../components/Article';
 
 export default function CreateArticle() {
-    const [categories, setCategories] = useState<string[]>(["Tutorial", "React", "News"])
+    const [categories, setCategories] = useState<string[]>([])
     const [category, setCategory] = useState<string>("")
-    const [title, setTitle] = useState<string>("How to use the Builder?")
-    const [description, setDescription] = useState<string>("This is a Tutorial to show how to use the Builder")
-    const [image, setImage] = useState<string>("https://miro.medium.com/v2/resize:fit:1400/1*_6ooq0R60ba3UT5c-QVemA.png")
-    const [sections, setSections] = useState<Section[]>([])
+    const [title, setTitle] = useState<string>("")
+    const [description, setDescription] = useState<string>("")
+    const [image, setImage] = useState<string>("https://picperf.io/https://laravelnews.s3.amazonaws.com/images/tailwindcss-1633184775.jpg")
 
     const addCategory = ()=>{
         if(category==="") return;
@@ -17,8 +15,8 @@ export default function CreateArticle() {
         setCategory("")
     }
     const canSectionsBeAdded = title!=="" && description!=="" && image!=="" && categories.length>0
-    const canBePublished = canSectionsBeAdded && sections.length !== 0
-    const [isInSectionMode, setIsInSectionMode] = useState<boolean>(true);
+    const canBePublished = canSectionsBeAdded
+    const [isInSectionMode, setIsInSectionMode] = useState<boolean>(false);
 
     const toggleSectionMode = ()=>{
         if(canSectionsBeAdded){
@@ -26,31 +24,14 @@ export default function CreateArticle() {
         }
     }
 
-    const addSection = ()=>{
-        if(isInSectionMode){
-            setSections([...sections, {
-                id: sections.length,
-                name: "Basic Section",
-                contentBlocks: [
-                    {
-                        type: "text",
-                        content: "Hello World",
-                        mode: "edit"
-                    }
-                ],
-            }])
-            console.log(sections)
-        }
-    }
-
     return (
-        <div className="w-full px-3 py-2 h-full bg-slate-200 flex flex-col justify-between">
+        <div className="w-full px-3 py-2 min-h-full bg-slate-200 flex flex-col justify-between">
             <div className="builder w-full flex-col">
                 <h1 className="text-3xl font-semibold mb-2">Builder</h1>
                 <div className="h-0.5 w-full bg-slate-300 opacity-50"></div>
                 {isInSectionMode ? 
                 <div>
-                    <p className="mt-5 text-xl">Add Article Section here:</p>
+                    <p className="mt-5 text-xl text-blue-600 italic">Create your Article here</p>
                     <ArticleComponent article={
                         {
                             title: title,
@@ -59,7 +40,7 @@ export default function CreateArticle() {
                             author:"default",
                             publishedAt: new Date(),
                             categories: categories,
-                            sections: sections
+                            content: "<p>Hello here is my first Section</p>"
                         }
                     }/>
                 </div> : 
@@ -124,15 +105,6 @@ export default function CreateArticle() {
                     save
                     </span>
                     {isInSectionMode ?  "Edit Meta Info":  "Save Meta Info"}
-                </button>
-                <button type="button" 
-                    className={` font-medium rounded-lg text-sm px-2.5  py-2.5 text-center inline-flex items-center me-2 ${isInSectionMode  ?"text-white bg-blue-500 hover:bg-blue-600": "border-blue-300 border-2 text-black opacity-20 cursor-pointer" }`} 
-                    disabled={!isInSectionMode} 
-                    onClick={addSection}>
-                    <span className="material-icons smallIcon mr-2">
-                    add
-                    </span>
-                    Add Section
                 </button>
                 <button type="button" className={`font-medium rounded-lg text-sm px-2.5  py-2.5 self-end text-center inline-flex items-center me-2  ${canBePublished ? "text-white bg-blue-500 hover:bg-blue-600": "border-blue-300 border-2 text-black opacity-20 cursor-pointer" }`} disabled={!canBePublished}>
                     <span className="material-icons smallIcon mr-2">

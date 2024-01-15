@@ -3,6 +3,8 @@ import TopBar from '../components/TopBar';
 
 export default function News() {
     return (
-        <TopBar />
+        <div className="min-h-full">
+             <TopBar />
+        </div>
     )
 }

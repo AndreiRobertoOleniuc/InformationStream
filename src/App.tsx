@@ -9,7 +9,7 @@ import Profile from './pages/Profile';
 function App() {
   return (
     <Router>
-      <div className="w-full h-svh flex flex-col justify-between">
+      <div className="w-full min-h-svh flex flex-col justify-between">
         <Routes>
           <Route path="/" element={<News />} />
           <Route path="/create" element={<CreateArticle />} />

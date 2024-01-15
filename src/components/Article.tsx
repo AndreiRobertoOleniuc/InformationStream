@@ -1,43 +1,63 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Article } from '../models/Article';
-import TextBlockComponent from './blocks/TextBlock';
-import ImageBlockComponent from './blocks/ImageBlock';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 
 const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
-  const renderContentBlock = (block: any) => {
-    switch (block.type) {
-      case 'text':
-        return <TextBlockComponent block={block} />;
-      case 'image':
-        return <ImageBlockComponent block={block} />;
-      default:
-        return null;
-    }
+  const [value, setValue] = useState('<p>Test</p>');
+
+  useEffect(() => {
+    console.log(value)
+  }, [value])
+  let readOnly = false;
+    // specify the formats
+  const formats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image', 'video'
+  ];
+
+  // specify the toolbar options
+  const modules = {
+    toolbar: !readOnly ? [
+      [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+      [{ size: [] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' },
+      { 'indent': '-1' }, { 'indent': '+1' }],
+      ['link', 'image', 'video'],
+      ['clean']
+    ] : [],
+    clipboard: {
+      matchVisual: false,
+    },
   };
+
+  const formatDate = () => {
+    const date = new Date(article.publishedAt)
+    //Format my Date in the following way: Day Month(Written) Year in en-gb
+    return date.toLocaleDateString("en-gb", { day: "numeric", month: "long", year: "numeric" })
+  }
 
   return (
     <div className="article-container overflow-hidden">
       <h1 className="text-3xl font-bold mb-1">{article.title}</h1>
-      <img src={article.heroImage} alt="" className="w-2/6 h-auto rounded hidden lg:block" />
-      <p className="text-gray-600 mb-2">{article.description}</p>
+      <div className='mb-2 font-light'>{formatDate()}</div>
       <div className="flex flex-row flex-wrap mb-2">
         {article.categories.map(category => (
           <div key={category} className="flex justify-center items-center font-medium py-1 px-2 rounded-full text-gray-700 bg-gray-100 border border-gray-300 w-20 mr-1 mb-1">
-                <div className="text-xs font-normal leading-none max-w-full flex-initial text-center ">{category}</div>
+            <div className="text-xs font-normal leading-none max-w-full flex-initial text-center ">{category}</div>
           </div>
         ))}
       </div>
-        
-      <div className="overflow-y-auto overflow-x-hidden max-h-96">
-        {article.sections.map(section => (
-          <div key={section.id} className="section">
-            <h2 className="text-2xl font-bold mb-1">{section.name}</h2>
-            {section.contentBlocks.map(block => renderContentBlock(block))}
-            <button className="mt-2 bg-blue-400 text-white px-4 py-2 rounded w-full">Add Contentblock</button>
-          </div>
-        ))}
-      </div>
+      <img src={article.heroImage} alt="" className="w-1/3 h-auto rounded hidden lg:block" />
+      <p className="text-gray-600 mt-2 mb-5">{article.description}</p>
+
+
+      <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} readOnly={readOnly} formats={formats} />
     </div>
   );
 };

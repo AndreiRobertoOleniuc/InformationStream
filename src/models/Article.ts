@@ -1,4 +1,3 @@
-import { Section } from "./Section";
 
 export interface Article {
   title: string;
@@ -7,5 +6,5 @@ export interface Article {
   categories: string[];
   author: string;
   publishedAt: Date;
-  sections: Section[];
+  content: string;
 }
