@@ -44,7 +44,7 @@ const ArticleComponent: React.FC<{ article: Article, setContent?: React.Dispatch
           </div>
         ))}
       </div>
-      {article.heroImage !== "" ? <img src={article.heroImage} alt="" className="w-1/3 h-auto rounded hidden lg:block mb-2" /> : null}
+      {article.heroImage !== "" ? <img src={article.heroImage} alt="" className={`h-auto rounded mb-2 self-center ${editMode ? 'w-1/3' : 'w-full'}`}  /> : null}
       <p className="text-gray-600 mb-5">{article.description}</p>
       
       <ReactQuill

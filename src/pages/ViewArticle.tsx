@@ -21,7 +21,7 @@ const ViewArticle: React.FC = () => {
     }, [articles, pathname]);
 
     return (
-        <div className="w-full py-2 flex-grow bg-slate-200 flex flex-col justify-between px-5 items-center">
+        <div className="w-full py-4 flex-grow bg-slate-200 flex flex-col justify-between px-3 items-center lg:px-48 xl:px-96 2xl:px-128">
             <div className="w-full flex-col">
                 <div>
                     <ArticleComponent article={article}  editMode={false}/>

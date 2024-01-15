@@ -6,6 +6,9 @@ module.exports = {
       maxHeight: {
         '128': '470px',
         '160': '550px'
+      },
+      padding: {
+        '128': '30vw',
       }
     },
   },
