@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import TopBar from '../components/TopBar';
 import { useSelector } from 'react-redux';
 import { selectArticles } from '../state/newsSlice';
@@ -8,9 +8,6 @@ import { Link } from 'react-router-dom';
 export default function News() {
     const articles: Article[] = useSelector(selectArticles);
 
-    useEffect(() => {
-        console.log(articles);
-    }, [articles]);
 
     return (
         <div className="min-h-full">

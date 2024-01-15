@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Article } from '../models/Article';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -29,9 +29,6 @@ const ArticleComponent: React.FC<{ article: Article, setContent?: React.Dispatch
     },
   };
 
-  useEffect(() => {
-    console.log(article.content);
-  }, [article]);
 
   return (
     <div className="article-container overflow-hidden">

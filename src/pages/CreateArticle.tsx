@@ -50,6 +50,15 @@ export default function CreateArticle() {
                 publishedAt: formatDate(),
                 content
             }));
+            console.log({
+                title,
+                description,
+                heroImage,
+                categories,
+                author:"Test User",
+                publishedAt: formatDate(),
+                content
+            })
             navigate('/');
         }
     }

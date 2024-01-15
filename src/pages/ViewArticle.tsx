@@ -14,7 +14,6 @@ const ViewArticle: React.FC = () => {
 
     React.useEffect(() => {
         const articleId = +pathname.split("/")[2];
-        console.log(articleId);
         const viewedArticle = articles.find((a,index) => index === articleId);
         if(!viewedArticle) return;
         setArticle(viewedArticle);
