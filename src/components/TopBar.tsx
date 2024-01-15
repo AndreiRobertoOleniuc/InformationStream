@@ -53,7 +53,7 @@ export default function TopBar() {
                         <span className="material-icons smallIcon mr-1">
                             trending_up
                         </span>
-                        Treding news</a>
+                        Trending news</a>
                 </li>
 
             </ul>
