@@ -1,16 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Article } from '../models/Article';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import "../styles/QuillOverrite.scss";
 
 
-const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
-  const [value, setValue] = useState('<p>Test</p>');
-
-  useEffect(() => {
-    console.log(value)
-  }, [value])
+const ArticleComponent: React.FC<{ article: Article, setContent?: React.Dispatch<React.SetStateAction<string>> }> = ({ article, setContent }) => {
   let readOnly = false;
     // specify the formats
   const formats = [
@@ -57,7 +53,7 @@ const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
       <p className="text-gray-600 mt-2 mb-5">{article.description}</p>
 
 
-      <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} readOnly={readOnly} formats={formats} />
+      <ReactQuill theme="snow" value={article.content} onChange={setContent} modules={modules} readOnly={readOnly} formats={formats} />
     </div>
   );
 };

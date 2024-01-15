@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../styles/Icons.scss"
 import ArticleComponent from '../components/Article';
 
@@ -8,14 +8,16 @@ export default function CreateArticle() {
     const [title, setTitle] = useState<string>("")
     const [description, setDescription] = useState<string>("")
     const [image, setImage] = useState<string>("https://picperf.io/https://laravelnews.s3.amazonaws.com/images/tailwindcss-1633184775.jpg")
-
+    const [content, setContent] = useState<string>("")
+    
     const addCategory = ()=>{
         if(category==="") return;
         setCategories([...categories, category])
         setCategory("")
     }
-    const canSectionsBeAdded = title!=="" && description!=="" && image!=="" && categories.length>0
-    const canBePublished = canSectionsBeAdded
+    const canSectionsBeAdded = title!=="" && description!=="" && image!=="" && categories.length>0;
+    const isContentEmpty = content === "" || content === "<p><br></p>" || content === "<p><br></p><p><br></p>" || content === "<p><br></p><p><br></p><p><br></p>" ;
+    const canBePublished = canSectionsBeAdded && !isContentEmpty
     const [isInSectionMode, setIsInSectionMode] = useState<boolean>(false);
 
     const toggleSectionMode = ()=>{
@@ -24,8 +26,14 @@ export default function CreateArticle() {
         }
     }
 
+    useEffect(() => {
+        console.log(content);
+    }, [content]);
+
+
+
     return (
-        <div className="w-full px-3 py-2 min-h-full bg-slate-200 flex flex-col justify-between">
+        <div className="w-full px-3 py-2 flex-grow bg-slate-200 flex flex-col justify-between">
             <div className="builder w-full flex-col">
                 <h1 className="text-3xl font-semibold mb-2">Builder</h1>
                 <div className="h-0.5 w-full bg-slate-300 opacity-50"></div>
@@ -40,9 +48,9 @@ export default function CreateArticle() {
                             author:"default",
                             publishedAt: new Date(),
                             categories: categories,
-                            content: "<p>Hello here is my first Section</p>"
+                            content: content
                         }
-                    }/>
+                    } setContent={setContent}/>
                 </div> : 
                 <div>
                     <p className="mt-5">First add Information about your Article here:</p>
@@ -99,7 +107,7 @@ export default function CreateArticle() {
                 </div>
                 }
             </div>
-            <div className="flex flex-row">
+            <div className="flex flex-row mt-3">
                 <button type="button" className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center inline-flex items-center me-2 cursor-pointer" onClick={toggleSectionMode}>
                     <span className="material-icons smallIcon mr-2">
                     save

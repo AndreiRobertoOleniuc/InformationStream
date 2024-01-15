@@ -1,0 +1,10 @@
+.ql-container.ql-snow {
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .ql-editor {
+    height: 45vh;
+    overflow-y: auto;
+  }
+}
