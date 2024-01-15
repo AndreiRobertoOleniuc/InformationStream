@@ -30,30 +30,31 @@ export default function TopBar() {
 
             <ul className="flex max-w-full text-sm font-medium text-center text-gray-500  border-gray-200 overflow-x-hidden overflow-y-auto">
                 <li className="me-2 w-2/5">
-                    <a href="/" aria-current="page" className="flex flex-row  justify-center items-center p-2   text-white  border-blue-200 border-b-4 active w-full h-full text-xs">Following</a>
+                    <p aria-current="page" className="flex flex-row  justify-center items-center p-2   text-white  border-blue-200 border-b-4 active w-full h-full text-xs">Following</p>
                 </li>
                 <li className="me-2  w-2/5">
-                    <a href="/" className="flex flex-row  justify-center items-center p-2   hover:border-blue-300 hover:border-b-4 text-white w-full h-full bg-opacity-50 text-xs">
+                    <p  className="flex flex-row  justify-center items-center p-2    text-white w-full h-full bg-opacity-50 text-xs">
                         <span className="material-icons smallIcon mr-1 ">
                             star
                         </span>
                         For you
-                    </a>
+                    </p>
                 </li>
                 <li className="me-2  w-2/5">
-                    <a href="/" className="flex flex-row  justify-center items-center  p-2  hover:border-blue-300 hover:border-b-4 text-white w-full h-full bg-opacity-50 text-xs">
+                    <p className="flex flex-row  justify-center items-center  p-2  text-white w-full h-full bg-opacity-50 text-xs">
                         <span className="material-icons smallIcon mr-1">
                             local_fire_department
                         </span>
                         Breaking news
-                    </a>
+                    </p>
                 </li>
                 <li className="me-2  w-2/5">
-                    <a href="/" className="flex flex-row  justify-center items-center p-2  hover:border-blue-300 hover:border-b-4 text-white w-full h-full bg-opacity-50 text-xs ">
+                    <p className="flex flex-row  justify-center items-center p-2   text-white w-full h-full bg-opacity-50 text-xs ">
                         <span className="material-icons smallIcon mr-1">
                             trending_up
                         </span>
-                        Trending news</a>
+                        Trending news
+                    </p>
                 </li>
 
             </ul>

@@ -1,28 +1,56 @@
 import React, { useState } from 'react';
 import "../styles/Icons.scss"
 import ArticleComponent from '../components/Article';
+import { useDispatch } from 'react-redux';
+import { addNews } from '../state/newsSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function CreateArticle() {
     const [categories, setCategories] = useState<string[]>([])
     const [category, setCategory] = useState<string>("")
     const [title, setTitle] = useState<string>("")
     const [description, setDescription] = useState<string>("")
-    const [image, setImage] = useState<string>("https://picperf.io/https://laravelnews.s3.amazonaws.com/images/tailwindcss-1633184775.jpg")
+    const [heroImage, setHeroImage] = useState<string>("")
     const [content, setContent] = useState<string>("")
     
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
     const addCategory = ()=>{
         if(category==="") return;
         setCategories([...categories, category])
         setCategory("")
     }
-    const canSectionsBeAdded = title!=="" && description!=="" && image!=="" && categories.length>0;
+    const canSectionsBeAdded = title!=="" && description!==""  && categories.length>0;
     const isContentEmpty = content === "" || content === "<p><br></p>" || content === "<p><br></p><p><br></p>" || content === "<p><br></p><p><br></p><p><br></p>" ;
     const canBePublished = canSectionsBeAdded && !isContentEmpty
     const [isInSectionMode, setIsInSectionMode] = useState<boolean>(false);
 
+    const formatDate = () => {
+        const date = new Date()
+        //Format my Date in the following way: Day Month(Written) Year in en-gb
+        return date.toLocaleDateString("en-gb", { day: "numeric", month: "long", year: "numeric" })
+    }
+
     const toggleSectionMode = ()=>{
         if(canSectionsBeAdded){
             setIsInSectionMode(!isInSectionMode);
+        }
+    }
+
+    const publishArticle = ()=>{
+        if(canBePublished){
+            dispatch(addNews({
+                title,
+                description,
+                heroImage,
+                categories,
+                author:"Test User",
+                publishedAt: formatDate(),
+                content
+            }));
+            navigate('/');
         }
     }
 
@@ -38,13 +66,13 @@ export default function CreateArticle() {
                         {
                             title: title,
                             description: description,
-                            heroImage: image,
+                            heroImage: heroImage,
                             author:"default",
-                            publishedAt: new Date(),
+                            publishedAt: formatDate(),
                             categories: categories,
                             content: content
                         }
-                    } setContent={setContent}/>
+                    } setContent={setContent} editMode={true}/>
                 </div> : 
                 <div>
                     <p className="mt-5">First add Information about your Article here:</p>
@@ -72,8 +100,8 @@ export default function CreateArticle() {
                         <input type="text" id="image" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500  " 
                         placeholder="Image URL" 
                         required 
-                        value={image} 
-                        onChange={(e)=>setImage(e.target.value)}/>
+                        value={heroImage} 
+                        onChange={(e)=>setHeroImage(e.target.value)}/>
                     </div>
                     <div className="mt-5">
                         {categories.map((category, index) => (
@@ -102,13 +130,13 @@ export default function CreateArticle() {
                 }
             </div>
             <div className="flex flex-row mt-3">
-                <button type="button" className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center inline-flex items-center me-2 cursor-pointer" onClick={toggleSectionMode}>
+                <button type="button" className={`font-medium rounded-lg text-sm px-2.5 py-2.5 text-center inline-flex items-center me-2 cursor-pointer ${canSectionsBeAdded ? "text-white bg-blue-500 hover:bg-blue-600": "border-blue-300 border-2 text-black opacity-20 cursor-pointer" }`} disabled={!canSectionsBeAdded} onClick={toggleSectionMode}>
                     <span className="material-icons smallIcon mr-2">
                     save
                     </span>
                     {isInSectionMode ?  "Edit Meta Info":  "Save Meta Info"}
                 </button>
-                <button type="button" className={`font-medium rounded-lg text-sm px-2.5  py-2.5 self-end text-center inline-flex items-center me-2  ${canBePublished ? "text-white bg-blue-500 hover:bg-blue-600": "border-blue-300 border-2 text-black opacity-20 cursor-pointer" }`} disabled={!canBePublished}>
+                <button type="button" className={`font-medium rounded-lg text-sm px-2.5  py-2.5 self-end text-center inline-flex items-center me-2  ${canBePublished ? "text-white bg-blue-500 hover:bg-blue-600": "border-blue-300 border-2 text-black opacity-20 cursor-pointer" }`} disabled={!canBePublished} onClick={publishArticle}>
                     <span className="material-icons smallIcon mr-2">
                     publish
                     </span>
