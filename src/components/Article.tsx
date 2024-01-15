@@ -12,7 +12,6 @@ const ArticleComponent: React.FC<{ article: Article, setContent?: React.Dispatch
     'header', 'size',
     'bold', 'italic', 'underline', 'strike', 'blockquote',
     'list', 'bullet', 'indent',
-    'link', 'image', 'video'
   ];
 
   // specify the toolbar options
@@ -23,7 +22,6 @@ const ArticleComponent: React.FC<{ article: Article, setContent?: React.Dispatch
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
       [{ 'list': 'ordered' }, { 'list': 'bullet' },
       { 'indent': '-1' }, { 'indent': '+1' }],
-      ['link', 'image', 'video'],
       ['clean']
     ] : [],
     clipboard: {

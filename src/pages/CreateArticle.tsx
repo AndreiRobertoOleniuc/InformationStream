@@ -55,7 +55,7 @@ export default function CreateArticle() {
     }
 
     return (
-        <div className="w-full px-3 py-2 flex-grow bg-slate-200 flex flex-col justify-between">
+        <div className="w-full px-3 py-2 flex-grow bg-slate-200 flex flex-col justify-between pb-24">
             <div className="builder w-full flex-col">
                 <h1 className="text-3xl font-semibold mb-2">Builder</h1>
                 <div className="h-0.5 w-full bg-slate-300 opacity-50"></div>

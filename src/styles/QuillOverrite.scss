@@ -1,3 +1,5 @@
+@import "responsive.scss";
+
 .ql-container.ql-snow {
   height: auto;
 }
@@ -10,6 +12,25 @@
   .ql-editor {
     height: 45vh;
     overflow-y: auto;
+  }
+
+  .readonly {
+    .ql-editor {
+      height: auto !important;
+    }
+  }
+}
+
+@include screen-phone {
+  .ql-editor {
+    height: 25svh;
+    overflow-y: auto;
+  }
+
+  .readonly {
+    .ql-editor {
+      height: auto !important;
+    }
   }
 }
 
@@ -25,4 +46,5 @@
   .ql-editor {
     padding: 0 !important;
   }
+  padding-bottom: 100px !important;
 }
