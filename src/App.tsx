@@ -12,10 +12,10 @@ function App() {
     <Router>
       <div className="w-full min-h-svh flex flex-col justify-between">
         <Routes>
-          <Route path="/" element={<News />} />
-          <Route path="/create" element={<CreateArticle />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/article/:id" element={<ViewArticle />} />
+          <Route path="/InformationStream" element={<News />} />
+          <Route path="/InformationStream/create" element={<CreateArticle />} />
+          <Route path="/InformationStream/profile" element={<Profile />} />
+          <Route path="/InformationStream/article/:id" element={<ViewArticle />} />
         </Routes>
         <NavBar />
       </div>

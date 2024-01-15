@@ -14,7 +14,7 @@ export default function News() {
             <TopBar />
             <div>
                 {articles?.map((article,id) => (
-                    <Link to={"/article/" + id.toString()} key={article.title} className="">
+                    <Link to={"/InformationStream/article/" + id.toString()} key={article.title} className="">
                         <p>{article.title}</p>
                     </Link>
                 )
