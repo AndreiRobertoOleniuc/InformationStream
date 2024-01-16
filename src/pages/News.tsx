@@ -11,7 +11,7 @@ export default function News() {
 
     return (
         <div className="min-h-full">
-            <TopBar />
+            <TopBar withSearchAndFilter={true}/>
             <div>
                 {articles?.map((article,id) => (
                     <Link to={"/InformationStream/article/" + id.toString()} key={article.title} className="">

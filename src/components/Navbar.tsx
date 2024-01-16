@@ -12,10 +12,6 @@ export default function NavBar() {
                 <span className="material-icons">add</span>
                 <p className="mt-2">Create Article</p>
             </Link>
-            <Link to="/InformationStream/profile" className="flex flex-col justify-center items-center cursor-pointer">
-                <span className="material-icons">person</span>
-                <p className="mt-2">Profile</p>
-            </Link>
         </div>
     )
 }

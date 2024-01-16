@@ -1,10 +1,10 @@
 import React from "react";
 import "../styles/Icons.scss"
 
-export default function TopBar() {
+const TopBar: React.FC<{ withSearchAndFilter: boolean }> = ({ withSearchAndFilter = true }) => {
     return (
-        <div className=" w-full bg-blue-500 pr-2 pl-2 pt-2">
-            <div className="w-full flex justify-between mb-4">
+        <div className=" w-full bg-blue-500 pr-2 pl-2 pt-2 ">
+            <div className="w-full flex justify-between mb-4 pb-2">
                 <span className="w-10"></span>
                 <p className="text-white text-lg">Informations Stream</p>
                 <div className="flex flex-row justify-center items-center">
@@ -14,8 +14,7 @@ export default function TopBar() {
                     </span>
                 </div>
             </div>
-
-            <form className="mb-2">
+            {withSearchAndFilter ? <form className="mb-2">
                 <label className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
                 <div className="relative">
                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -26,9 +25,9 @@ export default function TopBar() {
                     <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500  " placeholder="Search for news" required />
                     <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Search</button>
                 </div>
-            </form>
-
-            <ul className="flex max-w-full text-sm font-medium text-center text-gray-500  border-gray-200 overflow-x-hidden overflow-y-auto">
+            </form> : null}
+        
+            {withSearchAndFilter ?          <ul className="flex max-w-full text-sm font-medium text-center text-gray-500  border-gray-200 overflow-x-hidden overflow-y-auto">
                 <li className="me-2 w-2/5">
                     <p aria-current="page" className="flex flex-row  justify-center items-center p-2   text-white  border-blue-200 border-b-4 active w-full h-full text-xs">Following</p>
                 </li>
@@ -57,8 +56,10 @@ export default function TopBar() {
                     </p>
                 </li>
 
-            </ul>
+            </ul>: null}
+   
 
         </div>
     )
 }
+export default TopBar;
