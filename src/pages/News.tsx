@@ -9,7 +9,6 @@ import "../styles/Icons.scss";
 export default function News() {
     const articles: Article[] = useSelector(selectArticles);
 
-
     return (
         <div className="min-h-full">
             <TopBar withSearchAndFilter={true}/>
