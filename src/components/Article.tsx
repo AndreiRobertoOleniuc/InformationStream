@@ -33,7 +33,7 @@ const ArticleComponent: React.FC<{ article: Article, setContent?: React.Dispatch
   return (
     <div className="article-container overflow-hidden">
       <h1 className="text-3xl font-bold mb-1">{article.title}</h1>
-      <div className='mb-2 font-light'>{article.publishedAt}</div>
+      <div className='mb-2 font-light'>{article.author} {article.publishedAt}</div>
       <div className="flex flex-row flex-wrap mb-2">
         {article.categories?.map(category => (
           <div key={category} className="flex justify-center items-center font-medium py-1 px-2 rounded-full text-gray-700 bg-gray-100 border border-gray-300 w-auto mr-1 mb-1">
