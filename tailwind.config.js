@@ -9,6 +9,11 @@ module.exports = {
       },
       padding: {
         '128': '30vw',
+      },
+      width: {
+        'largeScrenWidth': "31.666667%",
+        'mediumScreenWidth': "48.666667%",
+        'imgBig': "500px",
       }
     },
   },
