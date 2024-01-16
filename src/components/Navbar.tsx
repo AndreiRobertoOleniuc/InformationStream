@@ -10,7 +10,7 @@ export default function NavBar() {
             </Link>
             <Link to="/create" className="flex flex-col justify-center items-center cursor-pointer">
                 <span className="material-icons">add</span>
-                <p className="mt-2">Create Article</p>
+                <p className="mt-2">Artikel erstellen</p>
             </Link>
         </div>
     )

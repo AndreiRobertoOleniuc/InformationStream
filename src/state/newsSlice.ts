@@ -4,113 +4,90 @@ import { Article } from "../models/Article";
 const initialState = {
   articles: [
     {
-      title: "ETH Zurich Wins Watt d’Or for Innovative Energy Technology",
+      title: "ETH Zürich gewinnt Watt d’Or für innovative Energietechnologie",
       description:
-        "ETH Zurich, in collaboration with AEW Energie AG, has been awarded the Watt d’Or for developing a groundbreaking energy optimization algorithm.",
+        "Die ETH Zürich hat in Zusammenarbeit mit der AEW Energie AG den Watt d’Or für die Entwicklung eines bahnbrechenden Energieoptimierungsalgorithmus erhalten.",
       heroImage:
         "https://www.studyinswitzerland.plus/app/uploads/2018/02/sta_zentrum_hauptgebaeude_048.jpg",
-      categories: ["Science", "Technology", "Environment"],
+      categories: ["Wissenschaft", "Technologie", "Umwelt"],
       author: "Luca Nana",
       publishedAt: "2024-01-16",
       content:
-        "<p>ETH Zurich researchers have been recognized with the Watt d’Or award for their significant contributions to energy technology, optimizing the electricity grid with a novel algorithm. This achievement marks a major step forward in sustainable energy management.</p>",
+        "<p>Forscher der ETH Zürich wurden mit dem Watt d’Or Preis für ihre bedeutenden Beiträge zur Energietechnologie ausgezeichnet, indem sie das Stromnetz mit einem neuartigen Algorithmus optimieren. Diese Errungenschaft stellt einen großen Schritt nach vorne im nachhaltigen Energiemanagement dar.</p>",
     },
     {
-      title:
-        "Innovative Traffic Solutions to Transform Zurich's Urban Landscape",
+      title: "Innovative Verkehrslösungen verwandeln Zürichs Stadtbild",
       description:
-        "Zurich is set to implement cutting-edge traffic management systems aimed at enhancing urban mobility and reducing congestion.",
+        "Zürich plant, modernste Verkehrsmanagementsysteme einzuführen, um die städtische Mobilität zu verbessern und Staus zu reduzieren.",
       heroImage:
         "https://www.swissinfo.ch/resource/image/18011388/landscape_ratio3x2/580/386/a5795c52fb95ade0a4024c148ac09cda/F1159856DD9B773C94E4F056B8628C91/82245820-18011390.jpg",
-      categories: ["Urban Planning", "Technology"],
+      categories: ["Stadtplanung", "Technologie"],
       author: "Andrei Oleniuc",
       publishedAt: "2024-01-14",
       content:
-        "<p>Zurich city planners are embracing innovative technologies to revolutionize traffic management, aiming to create a more efficient and less congested urban environment.</p>",
+        "<p>Stadtplaner in Zürich setzen auf innovative Technologien, um das Verkehrsmanagement zu revolutionieren und so eine effizientere und weniger verstopfte städtische Umgebung zu schaffen.</p>",
     },
     {
-      title: "Aargau's Push for Eco-Friendly Public Transport",
+      title: "Aargaus Vorstoß für umweltfreundlichen öffentlichen Verkehr",
       description:
-        "Aargau invests in green public transport solutions, aiming to reduce carbon emissions and promote sustainable travel.",
+        "Aargau investiert in grüne öffentliche Verkehrslösungen, um CO2-Emissionen zu reduzieren und nachhaltige Reisen zu fördern.",
       heroImage:
         "https://swissfederalism.ch/wp-content/uploads/2021/03/Un-bus-elettrico-di-marca-VOS-per-lAutpostale.jpeg",
-      categories: ["Environment", "Transportation"],
+      categories: ["Umwelt", "Verkehr"],
       author: "Fabian Bähler",
       publishedAt: "2024-01-12",
       content:
-        "<p>Aargau is leading the way in environmental conservation by investing in eco-friendly public transportation options, significantly reducing the region's carbon footprint.</p>",
+        "<p>Aargau geht bei der Umwelterhaltung voran, indem es in umweltfreundliche öffentliche Verkehrsmittel investiert und so den CO2-Fußabdruck der Region deutlich reduziert.</p>",
     },
     {
-      title: "Zurich's Thriving Tech Start-Up Scene",
+      title: "Zürichs florierende Tech-Startup-Szene",
       description:
-        "Zurich emerges as a hub for tech start-ups, attracting talent and investors with its dynamic ecosystem and supportive infrastructure.",
+        "Zürich entwickelt sich zu einem Zentrum für Tech-Startups und zieht mit seinem dynamischen Ökosystem und unterstützender Infrastruktur Talente und Investoren an.",
       heroImage:
         "https://images.unsplash.com/photo-1620563092215-0fbc6b55cfc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8enVyaWNofGVufDB8fDB8fHww&w=1000&q=80",
-      categories: ["Business", "Technology"],
+      categories: ["Geschäft", "Technologie"],
       author: "Simon Strauber",
       publishedAt: "2024-01-10",
       content:
-        "<p>Zurich is rapidly becoming a hotspot for tech start-ups, with a growing number of innovative companies choosing the city as their base.</p>",
+        "<p>Zürich wird schnell zu einem Hotspot für Tech-Startups, mit einer wachsenden Zahl von innovativen Unternehmen, die die Stadt als ihren Standort wählen.</p>",
     },
     {
-      title: "Aargau's Commitment to Renewable Energy",
+      title: "Aargaus Engagement für erneuerbare Energien",
       description:
-        "Aargau sets an example in renewable energy adoption, aiming to meet its energy needs sustainably.",
+        "Aargau setzt ein Beispiel für die Einführung erneuerbarer Energien und strebt danach, seine Energiebedürfnisse nachhaltig zu decken.",
       heroImage:
         "https://u4d2z7k9.rocketcdn.me/wp-content/uploads/2023/07/Untitled-683-%C3%97-1024px-1024-%C3%97-683px-2023-07-12T154605.688.jpg",
-      categories: ["Environment", "Energy"],
+      categories: ["Umwelt", "Energie"],
       author: "Luca Nana",
       publishedAt: "2024-01-08",
       content:
-        "<p>Aargau demonstrates its commitment to a sustainable future by significantly investing in renewable energy sources, aiming to become a leader in green energy.</p>",
+        "<p>Aargau zeigt sein Engagement für eine nachhaltige Zukunft, indem es erheblich in erneuerbare Energiequellen investiert und so zum Vorreiter in Sachen grüner Energie wird.</p>",
     },
     {
-      title: "Zurich's New Artistic Wave: Reviving the Cultural Scene",
+      title: "Zürichs neue künstlerische Welle: Belebung der Kulturszene",
       description:
-        "Zurich's cultural landscape is experiencing a renaissance, with an influx of new galleries and art initiatives.",
+        "Die kulturelle Landschaft Zürichs erlebt eine Renaissance, mit einem Zustrom neuer Galerien und Kunstinitiativen.",
       heroImage:
         "https://newinzurich.com/wp-content/uploads/2023/12/1117D0BF-1A03-4D2B-BA47-DA815729D5D7-compressed.jpg",
-      categories: ["Culture", "Art"],
+      categories: ["Kultur", "Kunst"],
       author: "Andrei Oleniuc",
       publishedAt: "2024-01-06",
       content:
-        "<p>Zurich is witnessing a cultural revival, marked by the opening of new art galleries and a surge in creative initiatives, enriching the city's artistic landscape.</p>",
+        "<p>Zürich erlebt eine kulturelle Wiederbelebung, gekennzeichnet durch die Eröffnung neuer Kunstgalerien und einem Anstieg kreativer Initiativen, die die künstlerische Landschaft der Stadt bereichern.</p>",
     },
     {
-      title: "Aargau's Agricultural Innovations Boost Local Economy",
+      title:
+        "Aargaus landwirtschaftliche Innovationen stärken die lokale Wirtschaft",
       description:
-        "Aargau's agricultural sector embraces technology, leading to increased productivity and a boost to the local economy.",
+        "Der landwirtschaftliche Sektor in Aargau nutzt die Technologie, was zu einer gesteigerten Produktivität und einem Schub für die lokale Wirtschaft führt.",
       heroImage:
         "https://www.ag.ch/media/kanton-aargau/portal/unser-kanton-aargau/zukunft/drohne-landwirtschaft_large.jpg",
-      categories: ["Agriculture", "Economy"],
+      categories: ["Landwirtschaft", "Wirtschaft"],
       author: "Tim Walter",
       publishedAt: "2024-01-04",
       content:
-        "<p>Technological advancements in Aargau's agriculture are driving productivity, significantly contributing to the region's economic growth.</p>",
+        "<p>Technologische Fortschritte in der Landwirtschaft Aargaus treiben die Produktivität voran und tragen so erheblich zum wirtschaftlichen Wachstum der Region bei.</p>",
     },
-    // {
-    //   title: "Why Mclaren F1 Team is the next big contander",
-    //   description:
-    //     "How Mclaren turned it's operations around and is looking like the most likely contender to RedBull Racing F1",
-    //   heroImage:
-    //     "https://www.thepaddockmagazine.com/wp-content/uploads/2023/04/00001-1.jpeg",
-    //   categories: ["Sports", "F1", "Cars"],
-    //   author: "Andrei Oleniuc",
-    //   publishedAt: "21 January 2024",
-    //   content: "<p>Test Content</p>",
-    // },
-    // {
-    //   title: "The Rise and Fall of Ferrari: A Legendary Journey",
-    //   description:
-    //     "Explore the captivating story of Ferrari, from its humble beginnings to its iconic status in the world of motorsports.",
-    //   heroImage:
-    //     "https://cdn-9.motorsport.com/images/amp/YW7LO7OY/s1000/charles-leclerc-ferrari-f1-75-.jpg",
-    //   categories: ["Sports", "F1", "Cars"],
-    //   author: "Andrei Oleniuc",
-    //   publishedAt: "13 January 2024",
-    //   content:
-    //     "<p>Ferrari's journey began in 1929 with Enzo Ferrari at its helm. Initially, the company sponsored drivers and manufactured racing cars before moving into production of street-legal vehicles in 1947. Over the years, Ferrari has established itself as a symbol of speed, luxury, and wealth. Despite facing numerous challenges, including the death of its founder and changes in ownership, Ferrari has maintained its status as a leading player in the automotive and motorsport world. Today, Ferrari is synonymous with Formula 1 racing and is recognized for its iconic red cars and the 'Prancing Horse' logo.</p>",
-    // },
   ] as Article[],
   searchFilter: "",
 };

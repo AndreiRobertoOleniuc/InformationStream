@@ -32,20 +32,20 @@ const TopBar: React.FC<{ withSearchAndFilter: boolean }> = ({ withSearchAndFilte
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                     </div>
-                    <input type="search" id="default-search" value={search} onChange={searchChanged} className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500  " placeholder="Search for news" required />
+                    <input type="search" id="default-search" value={search} onChange={searchChanged} className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Such nach dem was dich Interesiert" required />
                 </div>
             </form> : null}
         
             {withSearchAndFilter ?          <ul className="flex max-w-full text-sm font-medium text-center text-gray-500  border-gray-200 overflow-x-hidden overflow-y-auto">
                 <li className="me-2 w-2/5">
-                    <p aria-current="page" className="flex flex-row  justify-center items-center p-2   text-white  border-blue-200 border-b-4 active w-full h-full text-xs">Following</p>
+                    <p aria-current="page" className="flex flex-row  justify-center items-center p-2   text-white  border-blue-200 border-b-4 active w-full h-full text-xs">Abonniert</p>
                 </li>
                 <li className="me-2  w-2/5">
                     <p  className="flex flex-row  justify-center items-center p-2    text-white w-full h-full bg-opacity-50 text-xs">
                         <span className="material-icons smallIcon mr-1 ">
                             star
                         </span>
-                        For you
+                        Für dich
                     </p>
                 </li>
                 <li className="me-2  w-2/5">

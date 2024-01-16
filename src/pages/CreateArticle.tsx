@@ -70,7 +70,7 @@ export default function CreateArticle() {
                 <div className="h-0.5 w-full bg-slate-300 opacity-50"></div>
                 {isInSectionMode ? 
                 <div>
-                    <p className="mt-5 text-xl text-blue-600 italic">Create your Article here</p>
+                    <p className="mt-5 text-xl text-blue-600 italic">Erstelle deinen Artikel hier</p>
                     <ArticleComponent article={
                         {
                             title: title,
@@ -84,13 +84,13 @@ export default function CreateArticle() {
                     } setContent={setContent} editMode={true}/>
                 </div> : 
                 <div>
-                    <p className="mt-5">First add Information about your Article here:</p>
+                    <p className="mt-5">Füge zuerst Allgemeine Information über deinen Artikel hinzu:</p>
                     <div className="mt-5">
                         <label className="mb-2 text-sm font-medium text-gray-900 sr-only">Title</label>
                         <input type="text" 
                         id="title" 
                         className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500  " 
-                        placeholder="Title" 
+                        placeholder="Titel" 
                         required 
                         value={title} 
                         onChange={(e)=>setTitle(e.target.value)}/>
@@ -99,7 +99,7 @@ export default function CreateArticle() {
                         <label className="mb-2 text-sm font-medium text-gray-900 sr-only">Description</label>
                         <textarea id="description" 
                         className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500  " 
-                        placeholder="Description" 
+                        placeholder="Beschreibung" 
                         required 
                         value={description} 
                         onChange={(e)=>setDescription(e.target.value)}/>
@@ -107,7 +107,7 @@ export default function CreateArticle() {
                     <div className="mt-5">
                         <label className="mb-2 text-sm font-medium text-gray-900 sr-only">Hero Image URL</label>
                         <input type="text" id="image" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500  " 
-                        placeholder="Image URL" 
+                        placeholder="Haupt Bild URL" 
                         required 
                         value={heroImage} 
                         onChange={(e)=>setHeroImage(e.target.value)}/>
@@ -127,12 +127,12 @@ export default function CreateArticle() {
                         <label className="mb-2 text-sm font-medium text-gray-900 sr-only">category</label>
                         <div className="relative">
                             <input type="text" id="search" className="lock w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " 
-                            placeholder="Category" 
+                            placeholder="Kategory" 
                             required 
                             value={category} 
                             onChange={(e)=>setCategory(e.target.value)} />
                             <button className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
-                            onClick={addCategory}>Add</button>
+                            onClick={addCategory}>Hinzufügen</button>
                         </div>
                     </div>
                 </div>
@@ -143,13 +143,13 @@ export default function CreateArticle() {
                     <span className="material-icons smallIcon mr-2">
                     save
                     </span>
-                    {isInSectionMode ?  "Edit Meta Info":  "Save Meta Info"}
+                    {isInSectionMode ?  "Infos sichern":  "Infos ändern"}
                 </button>
                 <button type="button" className={`font-medium rounded-lg text-sm px-2.5  py-2.5 self-end text-center inline-flex items-center me-2  ${canBePublished ? "text-white bg-blue-500 hover:bg-blue-600": "border-blue-300 border-2 text-black opacity-20 cursor-pointer" }`} disabled={!canBePublished} onClick={publishArticle}>
                     <span className="material-icons smallIcon mr-2">
                     publish
                     </span>
-                    Publish Article
+                    Artikel veröffentlichen
                 </button>
             </div>
         </div>
