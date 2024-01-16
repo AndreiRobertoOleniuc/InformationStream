@@ -143,7 +143,7 @@ export default function CreateArticle() {
                     <span className="material-icons smallIcon mr-2">
                     save
                     </span>
-                    {isInSectionMode ?  "Infos sichern":  "Infos ändern"}
+                    {!isInSectionMode ?  "Infos sichern":  "Infos ändern"}
                 </button>
                 <button type="button" className={`font-medium rounded-lg text-sm px-2.5  py-2.5 self-end text-center inline-flex items-center me-2  ${canBePublished ? "text-white bg-blue-500 hover:bg-blue-600": "border-blue-300 border-2 text-black opacity-20 cursor-pointer" }`} disabled={!canBePublished} onClick={publishArticle}>
                     <span className="material-icons smallIcon mr-2">
