@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from '../components/TopBar';
 import { useSelector } from 'react-redux';
-import { selectArticles, selectSearchFilter } from '../state/newsSlice';
+import { selectArticles } from '../state/newsSlice';
 import { Article } from '../models/Article';
 import { Link } from 'react-router-dom';
 import "../styles/Icons.scss";
