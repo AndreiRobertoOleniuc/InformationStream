@@ -14,7 +14,7 @@ export default function News() {
             <TopBar withSearchAndFilter={true}/>
             <div className="flex flex-row px-4 pb-24 flex-wrap justify-between md:px-7 lg:px-10">
                 {articles?.map((article,id) => (
-                    <Link to={"/InformationStream/article/" + id.toString()} key={id} className=" w-full md:w-mediumScreenWidth lg:w-largeScrenWidth mt-5 flex flex-col">
+                    <Link to={"/article/" + id.toString()} key={id} className=" w-full md:w-mediumScreenWidth lg:w-largeScrenWidth mt-5 flex flex-col">
                         <div className="meta flex flex-row items-center mb-2">
                             <span className="material-icons mr-1 mediumIcon">account_circle</span>
                             <p className="mr-1 text-sm">{article.author}</p>

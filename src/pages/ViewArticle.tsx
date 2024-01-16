@@ -13,7 +13,7 @@ const ViewArticle: React.FC = () => {
     const articles = useSelector((state: RootState) => state.news.articles);
 
     React.useEffect(() => {
-        const articleId = +pathname.split("/")[3];
+        const articleId = +pathname.split("/")[2];
         const viewedArticle = articles.find((a,index) => index === articleId);
         if(!viewedArticle) return;
         setArticle(viewedArticle);
