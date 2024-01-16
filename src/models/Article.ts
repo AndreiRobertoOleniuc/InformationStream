@@ -4,6 +4,6 @@ export interface Article {
   heroImage: string;
   categories: string[];
   author: string;
-  publishedAt: String;
+  publishedAt: string;
   content: string;
 }
