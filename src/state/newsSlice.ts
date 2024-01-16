@@ -73,6 +73,7 @@ const initialState = {
         "<p>Ferrari's journey began in 1929 with Enzo Ferrari at its helm. Initially, the company sponsored drivers and manufactured racing cars before moving into production of street-legal vehicles in 1947. Over the years, Ferrari has established itself as a symbol of speed, luxury, and wealth. Despite facing numerous challenges, including the death of its founder and changes in ownership, Ferrari has maintained its status as a leading player in the automotive and motorsport world. Today, Ferrari is synonymous with Formula 1 racing and is recognized for its iconic red cars and the 'Prancing Horse' logo.</p>",
     },
   ] as Article[],
+  searchFilter: "",
 };
 
 export const newsSlice = createSlice({
@@ -82,11 +83,15 @@ export const newsSlice = createSlice({
     addNews: (state, action) => {
       state.articles.push(action.payload);
     },
+    setSearchFilter: (state, action) => {
+      state.searchFilter = action.payload;
+    },
   },
 });
 
-export const { addNews } = newsSlice.actions;
+export const { addNews, setSearchFilter } = newsSlice.actions;
 
 export const selectArticles = (state: any) => state.news.articles;
+export const selectSearchFilter = (state: any) => state.news.searchFilter;
 
 export default newsSlice.reducer;

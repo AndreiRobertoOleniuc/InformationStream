@@ -1,7 +1,17 @@
 import React from "react";
 import "../styles/Icons.scss"
+import { useDispatch } from "react-redux";
+import { setSearchFilter } from "../state/newsSlice";
 
 const TopBar: React.FC<{ withSearchAndFilter: boolean }> = ({ withSearchAndFilter = true }) => {
+    const [search, setSearch] = React.useState<string>("")
+    const dispatch = useDispatch();
+    
+    const searchChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value)
+        dispatch(setSearchFilter(search))
+    }
+
     return (
         <div className=" w-full bg-blue-500 pr-2 pl-2 pt-2 ">
             <div className="w-full flex justify-between mb-4 pb-2">
@@ -22,8 +32,7 @@ const TopBar: React.FC<{ withSearchAndFilter: boolean }> = ({ withSearchAndFilte
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                     </div>
-                    <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500  " placeholder="Search for news" required />
-                    <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Search</button>
+                    <input type="search" id="default-search" value={search} onChange={searchChanged} className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500  " placeholder="Search for news" required />
                 </div>
             </form> : null}
         
